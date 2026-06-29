@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Lunigiana — Tuscany's Hidden Gem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C8A96E;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8B6914;
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE1;
+    --terracotta: #C0634A;
+    --terracotta-light: #E8A090;
+    --olive: #6B7C52;
+    --dark: #1C1C1A;
+    --dark-mid: #2E2E2A;
+    --text-body: #3D3830;
+    --text-muted: #7A7268;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+    --section-pad: 6rem 2rem;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--text-body);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(28,28,26,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,169,110,0.2);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    color: var(--gold);
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { font-style: italic; }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--dark) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 500 !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); color: var(--dark) !important; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(to bottom, rgba(28,28,26,0.4) 0%, rgba(28,28,26,0.1) 40%, rgba(28,28,26,0.6) 100%),
+      url('https://images.unsplash.com/photo-1568009936282-2dec2e7a7b72?w=1800&q=80') center/cover no-repeat;
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    padding: 2rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 0.9rem 2.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.6);
+    color: #fff;
+    padding: 0.9rem 2.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollLine 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* SECTIONS */
+  section { padding: var(--section-pad); }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--terracotta); }
+
+  .section-body {
+    font-size: 1.02rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-img {
+    position: relative;
+  }
+
+  .about-img img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-img-accent {
+    position: absolute;
+    bottom: -2rem;
+    right: -2rem;
+    width: 180px;
+    height: 180px;
+    background: var(--gold);
+    opacity: 0.15;
+    z-index: -1;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .stat {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.25rem;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* ROOMS */
+  .rooms { background: var(--dark); padding: var(--section-pad); }
+
+  .rooms-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .rooms-header .section-title { color: var(--cream); margin-bottom: 0; }
+  .rooms-header .section-label { color: var(--gold-light); }
+  .rooms-header .section-label::before { background: var(--gold-light); }
+
+  .room-tabs {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0;
+    max-width: 1200px;
+    margin: 0 auto 0;
+  }
+
+  .room-tab {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+    font-weight: 400;
+    user-select: none;
+  }
+
+  .room-tab:hover { color: rgba(255,255,255,0.8); }
+  .room-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .room-panels {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 3rem;
+  }
+
+  .room-panel {
+    display: none;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .room-panel.active { display: grid; }
+
+  .room-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+  }
+
+  .room-gallery .main-img {
+    grid-column: 1 / -1;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .room-gallery .thumb {
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .room-gallery .thumb:hover { opacity: 0.85; }
+
+  .room-info { padding-top: 0.5rem; }
+
+  .room-type {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .room-name {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .room-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .room-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(200,169,110,0.2);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .room-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .room-feature::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .room-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-from { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+  .price-num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .price-unit { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .lightbox-close:hover { opacity: 1; }
+
+  /* PERSONEEL */
+  .staff { background: var(--cream-dark); }
+
+  .staff-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .staff-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .staff-header .section-label { justify-content: center; }
+
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .staff-card {
+    background: var(--cream);
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+
+  .staff-card:hover { transform: translateY(-4px); }
+  .staff-card:hover .staff-fun-fact { max-height: 100px; opacity: 1; }
+
+  .staff-photo {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    filter: sepia(15%) saturate(90%);
+  }
+
+  .staff-body {
+    padding: 1.5rem;
+    border-top: 3px solid var(--gold);
+  }
+
+  .staff-role {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .staff-name {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .staff-tenure {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .staff-fun-fact {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 0;
+  }
+
+  .staff-card:hover .staff-fun-fact {
+    padding-top: 0.85rem;
+  }
+
+  .staff-fun-fact::before {
+    content: '🍷 ';
+    font-size: 0.9rem;
+  }
+
+  /* ACTIVITEITEN */
+  .activities { background: var(--cream); }
+
+  .activities-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .activity-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-bottom: 5rem;
+  }
+
+  .activity-info { padding-top: 2rem; }
+
+  .activity-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .activity-title em { font-style: italic; color: var(--terracotta); }
+
+  .activity-desc {
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+    font-size: 0.97rem;
+  }
+
+  .activity-detail {
+    font-size: 0.8rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* FOTOALBUM */
+  .album { position: relative; }
+
+  .album-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .album-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s;
+    filter: sepia(10%) saturate(95%);
+  }
+
+  .album-grid img:first-child {
+    grid-column: span 2;
+    height: 220px;
+  }
+
+  .album-grid img:hover {
+    filter: sepia(0) saturate(110%);
+    transform: scale(1.02);
+    z-index: 2;
+    position: relative;
+  }
+
+  /* REVIEWS */
+  .reviews { background: var(--dark); padding: var(--section-pad); }
+
+  .reviews-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .reviews-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .reviews-header .section-title { color: var(--cream); margin-bottom: 0; }
+  .reviews-header .section-label { color: var(--gold-light); }
+  .reviews-header .section-label::before { background: var(--gold-light); }
+
+  .rating-summary {
+    text-align: right;
+  }
+
+  .rating-big {
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 1;
+    font-weight: 300;
+  }
+
+  .rating-stars {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .rating-count {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.25rem;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 2rem;
+    position: relative;
+  }
+
+  .review-quote {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 0.5;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  .review-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1rem;
+  }
+
+  .review-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--dark);
+    flex-shrink: 0;
+  }
+
+  .review-name {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  .review-meta {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .review-stars {
+    margin-left: auto;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* CONTACT */
+  .contact { background: var(--cream); }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info-block {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: var(--dark);
+  }
+
+  .contact-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-value {
+    font-size: 1rem;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  .contact-value a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .contact-value a:hover { color: var(--terracotta); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .form-input {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 0.65rem 0;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--dark);
+    transition: border-color 0.2s;
+    outline: none;
+    border-radius: 0;
+  }
+
+  .form-input:focus { border-bottom-color: var(--gold); }
+  .form-input::placeholder { color: rgba(0,0,0,0.25); }
+
+  textarea.form-input { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    align-self: flex-start;
+    background: var(--dark);
+    color: var(--cream);
+    border: none;
+    padding: 0.95rem 2.5rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 2px;
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--gold-dark); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark-mid);
+    color: rgba(255,255,255,0.4);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* UTILITIES */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* SEPARATOR SECTION */
+  .separator {
+    background: var(--gold);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .separator p {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--dark);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .about-inner, .activity-feature, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .room-panel.active { grid-template-columns: 1fr; }
+    .album-grid { grid-template-columns: 1fr 1fr; }
+    .album-grid img:first-child { grid-column: 1; height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATIE -->
+<nav>
+  <a href="#" class="nav-logo">Hotel <span>Lunigiana</span></a>
+  <ul class="nav-links">
+    <li><a href="#kamers">Kamers</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#activiteiten">Activiteiten</a></li>
+    <li><a href="#recensies">Recensies</a></li>
+    <li><a href="#contact" class="nav-cta">Reserveer</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Toscane's beste geheim — Lunigiana, Italië</p>
+    <h1>Dove il tempo<br><em>si ferma</em></h1>
+    <p class="hero-sub">Een familiehotel in het hart van de Lunigiana — omringd door wijngaarden, kastelen en eeuwenoude heuvels</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Kamer reserveren</a>
+      <a href="#kamers" class="btn-outline">Onze kamers</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SEPARATOR QUOTE -->
+<div class="separator">
+  <p>"La vita è troppo breve per dormire male" — Het leven is te kort om slecht te slapen</p>
+</div>
+
+<!-- OVER ONS -->
+<section class="about" id="over">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Hotel Lunigiana interieur">
+      <div class="about-img-accent"></div>
+    </div>
+    <div>
+      <div class="section-label">Ons verhaal</div>
+      <h2 class="section-title">Een thuis<br>ver van huis — <em>al 1987</em></h2>
+      <div class="divider"></div>
+      <p class="section-body">
+        Hotel Lunigiana werd in 1987 opgericht door de familie Rossi in een gerestaureerde 18e-eeuwse villa op de heuvels van de Lunigiana. Wat begon als een bescheiden herberg voor wandelaars langs de Via Francigena, groeide uit tot een gezellig boetiekhotel waar gasten uit heel Europa keer op keer terugkeren.
+      </p>
+      <p class="section-body" style="margin-top:1rem;">
+        We geloven in traagheid — la dolce vita op zijn puurst. Geen haast, geen drukte. Alleen de geur van vers brood, de warmte van de Toscaanse zon, en het zachte geruis van de Magra in de verte.
+      </p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">37</div>
+          <div class="stat-label">Jaar open</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">14</div>
+          <div class="stat-label">Unieke kamers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4★</div>
+          <div class="stat-label">Beoordeling</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">9</div>
+          <div class="stat-label">Medewerkers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KAMERS -->
+<section class="rooms" id="kamers">
+  <div class="rooms-header">
+    <div>
+      <div class="section-label">Onze accomodatie</div>
+      <h2 class="section-title" style="color:var(--cream)">Drie soorten<br><em style="color:var(--gold-light)">kamers</em></h2>
+    </div>
+  </div>
+
+  <ul class="room-tabs">
+    <li class="room-tab active" onclick="showRoom('familie')">Familiekamer</li>
+    <li class="room-tab" onclick="showRoom('premium')">Premium Suite</li>
+    <li class="room-tab" onclick="showRoom('standaard')">Standaardkamer</li>
+  </ul>
+
+  <div class="room-panels">
+
+    <!-- FAMILIEKAMER -->
+    <div class="room-panel active" id="room-familie">
+      <div class="room-gallery">
+        <img class="main-img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80" alt="Familiekamer" onclick="openLightbox(this.src)">
+        <img class="thumb" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80" alt="Familiekamer detail" onclick="openLightbox(this.src)">
+        <img class="thumb" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&q=80" alt="Familiekamer badkamer" onclick="openLightbox(this.src)">
+      </div>
+      <div class="room-info">
+        <div class="room-type">Familiekamer · 4 personen</div>
+        <div class="room-name">La Grande<br>Famiglia</div>
+        <p class="room-desc">Onze ruimste kamer, speciaal ontworpen voor gezinnen die samen willen genieten. Met twee slaapkamers verbonden via een gezellige leefruimte, is dit de perfecte thuisbasis voor een onvergetelijke Italiaanse vakantie. De vier bedden zijn verdeeld over twee comfortabele kamers, zodat ouders en kinderen elk hun eigen ruimte hebben.</p>
+        <div class="room-features">
+          <div class="room-feature">4 bedden (2+2 indeling)</div>
+          <div class="room-feature">Aparte leefruimte</div>
+          <div class="room-feature">2 badkamers</div>
+          <div class="room-feature">Binnenplaats uitzicht</div>
+          <div class="room-feature">Airconditioning</div>
+          <div class="room-feature">Gratis kinderbedje</div>
+          <div class="room-feature">55m² oppervlak</div>
+          <div class="room-feature">Ontbijt inbegrepen</div>
+        </div>
+        <div class="room-price">
+          <span class="price-from">Vanaf</span>
+          <span class="price-num">€189</span>
+          <span class="price-unit">/ nacht</span>
+        </div>
+        <a href="#contact" class="btn-primary" style="background:var(--gold);color:var(--dark);">Reserveer deze kamer</a>
+      </div>
+    </div>
+
+    <!-- PREMIUM SUITE -->
+    <div class="room-panel" id="room-premium">
+      <div class="room-gallery">
+        <img class="main-img" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&q=80" alt="Premium Suite" onclick="openLightbox(this.src)">
+        <img class="thumb" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80" alt="Balkon met uitzicht" onclick="openLightbox(this.src)">
+        <img class="thumb" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&q=80" alt="Premium badkamer" onclick="openLightbox(this.src)">
+      </div>
+      <div class="room-info">
+        <div class="room-type">Premium Suite · 2 personen</div>
+        <div class="room-name">Il Panorama<br>Suite</div>
+        <p class="room-desc">Onze meest romantische kamer. Wakker worden met een spectaculair uitzicht over de glooiende Lunigianese heuvels — dat is de belofte van de Premium Suite. Het private terras met ligstoelen is uw persoonlijk stukje Italië, terwijl het interieur luxueuze comfort ademt met authentieke Toscaanse elementen.</p>
+        <div class="room-features">
+          <div class="room-feature">Kingsize tweepersoonsbed</div>
+          <div class="room-feature">Private balkon met panorama</div>
+          <div class="room-feature">Freestanding bad</div>
+          <div class="room-feature">Uitzicht op wijngaarden</div>
+          <div class="room-feature">Premium minibar</div>
+          <div class="room-feature">Dressing room</div>
+          <div class="room-feature">42m² + 12m² terras</div>
+          <div class="room-feature">Champagne bij aankomst</div>
+        </div>
+        <div class="room-price">
+          <span class="price-from">Vanaf</span>
+          <span class="price-num">€245</span>
+          <span class="price-unit">/ nacht</span>
+        </div>
+        <a href="#contact" class="btn-primary" style="background:var(--gold);color:var(--dark);">Reserveer deze kamer</a>
+      </div>
+    </div>
+
+    <!-- STANDAARDKAMER -->
+    <div class="room-panel" id="room-standaard">
+      <div class="room-gallery">
+        <img class="main-img" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80" alt="Standaardkamer" onclick="openLightbox(this.src)">
+        <img class="thumb" src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&q=80" alt="Kamer detail" onclick="openLightbox(this.src)">
+        <img class="thumb" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500&q=80" alt="Badkamer" onclick="openLightbox(this.src)">
+      </div>
+      <div class="room-info">
+        <div class="room-type">Standaardkamer · 2 personen</div>
+        <div class="room-name">La Classica<br>Camera</div>
+        <p class="room-desc">Eenvoud op zijn mooist. Onze standaardkamers ademen de charme van het klassieke Italiaanse landhuis: terracottavloeren, houten balken, en witte gewassen muren. De perfecte kamer voor reizigers die authentiek comfort boven luxe franje verkiezen — alles wat je nodig hebt, niets wat je niet nodig hebt.</p>
+        <div class="room-features">
+          <div class="room-feature">Tweepersoonsbed</div>
+          <div class="room-feature">Geen balkon (tuinzijde)</div>
+          <div class="room-feature">Italiaanse regendouche</div>
+          <div class="room-feature">Originele terracottavloer</div>
+          <div class="room-feature">Airconditioning</div>
+          <div class="room-feature">Gratis wifi</div>
+          <div class="room-feature">28m² oppervlak</div>
+          <div class="room-feature">Ontbijt optioneel</div>
+        </div>
+        <div class="room-price">
+          <span class="price-from">Vanaf</span>
+          <span class="price-num">€119</span>
+          <span class="price-unit">/ nacht</span>
+        </div>
+        <a href="#contact" class="btn-primary" style="background:var(--gold);color:var(--dark);">Reserveer deze kamer</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="staff" id="team">
+  <div class="staff-inner">
+    <div class="staff-header">
+      <div class="section-label">De mensen achter het hotel</div>
+      <h2 class="section-title">Ons <em>team</em></h2>
+      <p class="section-body" style="margin: 0 auto; text-align:center;">Hover over een kaartje om een leuk weetje te ontdekken</p>
+    </div>
+
+    <div class="staff-grid">
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80" alt="Marco Rossi">
+        <div class="staff-body">
+          <div class="staff-role">Eigenaar & Directeur</div>
+          <div class="staff-name">Marco Rossi</div>
+          <div class="staff-tenure">Al 37 jaar bij ons — sinds de opening</div>
+          <div class="staff-fun-fact">Marco spreekt vloeiend vijf talen en kan een perfecte negroni mixen met zijn ogen dicht. Zijn geheim recept voor ribollita is zijn meest bewaarde schat.</div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&q=80" alt="Sofia Rossi">
+        <div class="staff-body">
+          <div class="staff-role">Gastvrouw & Co-directeur</div>
+          <div class="staff-name">Sofia Rossi</div>
+          <div class="staff-tenure">Al 31 jaar bij ons</div>
+          <div class="staff-fun-fact">Sofia organiseert elk jaar de wijnproeverij en heeft al meer dan 200 etiketten geproefd uit de Lunigiana. Ze weet precies welke wijn bij welke gast past.</div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=500&q=80" alt="Luca Bianchi">
+        <div class="staff-body">
+          <div class="staff-role">Executive Chef</div>
+          <div class="staff-name">Luca Bianchi</div>
+          <div class="staff-tenure">Al 18 jaar bij ons</div>
+          <div class="staff-fun-fact">Luca stond op zijn 12e al achter het fornuis van zijn nonna. Hij verzamelt antieke kookboeken en heeft er inmiddels meer dan 400 in zijn collectie.</div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80" alt="Giulia Ferrari">
+        <div class="staff-body">
+          <div class="staff-role">Receptie & Concierge</div>
+          <div class="staff-name">Giulia Ferrari</div>
+          <div class="staff-tenure">Al 9 jaar bij ons</div>
+          <div class="staff-fun-fact">Giulia kent elke lokale boer, bakker en wijnmaker bij naam. Als zij een restaurant aanbeveelt, is het altijd raak — ze heeft nog nooit een gast teleurgesteld.</div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80" alt="Alessandro Conti">
+        <div class="staff-body">
+          <div class="staff-role">Tuinier & Huismeester</div>
+          <div class="staff-name">Alessandro Conti</div>
+          <div class="staff-tenure">Al 22 jaar bij ons</div>
+          <div class="staff-fun-fact">Alessandro kweekt alle kruiden voor de keuken in de tuin. Zijn rozemarijnstruik is al meer dan twintig jaar oud en wordt 's zomers bewaard als een dierbaar familielid.</div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=80" alt="Francesca Marino">
+        <div class="staff-body">
+          <div class="staff-role">Housekeeping Manager</div>
+          <div class="staff-name">Francesca Marino</div>
+          <div class="staff-tenure">Al 14 jaar bij ons</div>
+          <div class="staff-fun-fact">Francesca vouwt handdoeken in meer dan 30 vormen en laat elke dag een verrassing achter op de bedden. Gasten zetten haar creaties soms online!</div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=500&q=80" alt="Roberto De Luca">
+        <div class="staff-body">
+          <div class="staff-role">Sommelier & Bar</div>
+          <div class="staff-name">Roberto De Luca</div>
+          <div class="staff-tenure">Al 7 jaar bij ons</div>
+          <div class="staff-fun-fact">Roberto heeft het Italian Sommelier Association diploma en is bezig met een boek over vergeten Toscaanse druivenrassen. Hij schenkt 's avonds altijd een verrassing bij.</div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <img class="staff-photo" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80" alt="Paolo Esposito">
+        <div class="staff-body">
+          <div class="staff-role">Activiteitenbegeleider</div>
+          <div class="staff-name">Paolo Esposito</div>
+          <div class="staff-tenure">Al 5 jaar bij ons</div>
+          <div class="staff-fun-fact">Paolo spreekt zeven talen, fietst elke ochtend 30 km voor het werk en kent iedere wandelroute in de Lunigiana uit zijn hoofd — inclusief de geheime picknickplekken.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITEITEN -->
+<section class="activities" id="activiteiten">
+  <div class="activities-inner">
+    <div style="margin-bottom:3.5rem;">
+      <div class="section-label">Belevenissen</div>
+      <h2 class="section-title">Activiteiten &amp;<br><em>ervaringen</em></h2>
+    </div>
+
+    <!-- WIJNPROE AVOND FEATURED -->
+    <div class="activity-feature">
+      <div>
+        <div class="album-title">📸 Sfeerfoto's — Edities 2022 · 2023 · 2024</div>
+        <div class="album-grid">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" alt="Wijnproeverij sfeer" onclick="openLightbox(this.src)">
+          <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&q=80" alt="Wijnglazen" onclick="openLightbox(this.src)">
+          <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80" alt="Wijnkelder" onclick="openLightbox(this.src)">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Antipasti tafel" onclick="openLightbox(this.src)">
+        </div>
+      </div>
+      <div class="activity-info">
+        <div class="section-label">Signature Experience</div>
+        <div class="activity-title">La <em>Serata del Vino</em><br>— Wijnproef­avond</div>
+        <p class="activity-desc">
+          Elke vrijdagavond opent sommelier Roberto De Luca de deuren van onze wijnkelder voor een intiem wijnproefavond. Vier tot zes flessen uit de Lunigiana, Toscane en Ligurië — vergezeld van zelfgemaakte antipasti uit de keuken van Luca — worden vakkundig gepresenteerd met verhalen over de bodem, de druif en de mensen erachter.
+        </p>
+        <p class="activity-desc">
+          Meer dan 200 gasten gingen u voor. Velen keerden speciaal voor dit moment terug. De avond duurt ongeveer twee uur en eindigt altijd te laat — zoals het hoort in Italië.
+        </p>
+        <div class="activity-detail">📅 Elke vrijdag · 19:00 · €38 per persoon · Max. 16 gasten</div>
+        <br>
+        <a href="#contact" class="btn-primary" style="margin-top:1rem;display:inline-block;background:var(--terracotta);">Plaats reserveren</a>
+      </div>
+    </div>
+
+    <!-- ANDERE ACTIVITEITEN GRID -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;margin-top:1rem;">
+
+      <div style="background:var(--cream-dark);padding:2rem;">
+        <div style="font-size:2rem;margin-bottom:1rem;">🚴</div>
+        <div class="activity-title" style="font-size:1.4rem;margin-bottom:0.75rem;">Fiets­tochten</div>
+        <p class="activity-desc" style="margin-bottom:1rem;">Fietstochten door de wijngaarden en middeleeuwse dorpjes van de Lunigiana, begeleid door Paolo. E-bikes beschikbaar.</p>
+        <div class="activity-detail">Dagelijks · €22/persoon</div>
+      </div>
+
+      <div style="background:var(--cream-dark);padding:2rem;">
+        <div style="font-size:2rem;margin-bottom:1rem;">🍝</div>
+        <div class="activity-title" style="font-size:1.4rem;margin-bottom:0.75rem;">Kookworkshop</div>
+        <p class="activity-desc" style="margin-bottom:1rem;">Leer pasta te maken, pesto van eigen basilicum en de beroemde focaccia di Recco onder begeleiding van chef Luca Bianchi.</p>
+        <div class="activity-detail">Donderdag & Zaterdag · €55/persoon</div>
+      </div>
+
+      <div style="background:var(--cream-dark);padding:2rem;">
+        <div style="font-size:2rem;margin-bottom:1rem;">🏰</div>
+        <div class="activity-title" style="font-size:1.4rem;margin-bottom:0.75rem;">Kasteel­wandelingen</div>
+        <p class="activity-desc" style="margin-bottom:1rem;">De Lunigiana telt meer dan 150 middeleeuwse kastelen. Paolo leidt u langs de mooiste — inclusief minder bekende pareltjes.</p>
+        <div class="activity-detail">Op aanvraag · €18/persoon</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIES -->
+<section class="reviews" id="recensies">
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <div>
+        <div class="section-label">Wat gasten zeggen</div>
+        <h2 class="section-title">Recensies</h2>
+      </div>
+      <div class="rating-summary">
+        <div class="rating-big">9.4</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-count">Gebaseerd op 312 beoordelingen</div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">We kwamen voor drie nachten en bleven zeven. Het hotel heeft een magie die je niet verwacht — de rust, het licht, het eten. Sofia en Marco maken je echt het gevoel dat je thuis bent. We komen zeker terug.</p>
+        <div class="review-footer">
+          <div class="review-avatar">ML</div>
+          <div>
+            <div class="review-name">Marie & Luc Dubois</div>
+            <div class="review-meta">Parijs, Frankrijk · Augustus 2024</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">De wijnproefavond met Roberto was absoluut het hoogtepunt van onze vakantie. Hij vertelt verhalen over elke fles als een roman. We hebben drie flessen mee naar huis genomen. Ongelooflijk hotel.</p>
+        <div class="review-footer">
+          <div class="review-avatar">KS</div>
+          <div>
+            <div class="review-name">Klaus & Sabine Müller</div>
+            <div class="review-meta">München, Duitsland · Juni 2024</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Met twee kinderen van 6 en 9 was de familiekamer perfect. Ruim, schoon, én kinderen waren erg welkom. Giulia aan de receptie regelde alles voor ons — van een kinderstoel tot een wandelkaart. Top service!</p>
+        <div class="review-footer">
+          <div class="review-avatar">JB</div>
+          <div>
+            <div class="review-name">Jolien & Bruno Van den Berg</div>
+            <div class="review-meta">Gent, België · Juli 2024</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Het ontbijt alleen al is de reis waard. Verse vijgen uit de tuin, zelfgemaakte jam en Luca's focaccia. De Premium Suite met balkon is magisch bij zonsopgang — je ziet de mist optrekken boven de heuvels.</p>
+        <div class="review-footer">
+          <div class="review-avatar">EF</div>
+          <div>
+            <div class="review-name">Elena & Filippo Caruso</div>
+            <div class="review-meta">Milaan, Italië · September 2024</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Rustig, authentiek en zonder pretentie. Precies wat we zochten. Alessandro's tuin is een wonder — hij plukte verse tomaten voor ons diner. Dit is echt Italië zoals het moet zijn, niet het toeristische cliché.</p>
+        <div class="review-footer">
+          <div class="review-avatar">AN</div>
+          <div>
+            <div class="review-name">Anna Nakamura</div>
+            <div class="review-meta">Tokio, Japan · Oktober 2023</div>
+          </div>
+          <div class="review-stars">★★★★☆</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Vierde keer dat we terugkomen. Hotel Lunigiana is ons jaarlijkse ritueel geworden. Marco herinnert zich onze namen, onze kamer, onze wijnvoorkeur. Zo'n persoonlijke aanpak vind je nergens anders meer.</p>
+        <div class="review-footer">
+          <div class="review-avatar">PO</div>
+          <div>
+            <div class="review-name">Peter & Olivia Hartmann</div>
+            <div class="review-meta">Amsterdam, Nederland · Mei 2024</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Kom naar ons toe</div>
+      <h2 class="section-title">Reserveer uw<br><em>verblijf</em></h2>
+      <div class="divider"></div>
+      <p class="section-body" style="margin-bottom:2.5rem;">We beantwoorden uw bericht binnen 24 uur. Voor last-minute reserveringen kunt u ons ook direct bellen.</p>
+
+      <div class="contact-info-block">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Adres</div>
+          <div class="contact-value">Via della Lunigiana 42<br>54011 Aulla (MS)<br>Toscane, Italië</div>
+        </div>
+      </div>
+
+      <div class="contact-info-block">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Telefoon</div>
+          <div class="contact-value"><a href="tel:+390187400123">+39 0187 400 123</a></div>
+        </div>
+      </div>
+
+      <div class="contact-info-block">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">E-mail</div>
+          <div class="contact-value"><a href="mailto:info@hotellunigiana.it">info@hotellunigiana.it</a></div>
+        </div>
+      </div>
+
+      <div class="contact-info-block">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Receptie</div>
+          <div class="contact-value">Elke dag open · 08:00 – 22:00<br>Check-in: 15:00 · Check-out: 11:00</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleForm(event)">
+      <div class="form-group">
+        <label class="form-label">Uw naam</label>
+        <input type="text" class="form-input" placeholder="Voornaam Achternaam" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">E-mailadres</label>
+        <input type="email" class="form-input" placeholder="naam@voorbeeld.be" required>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <div class="form-group">
+          <label class="form-label">Aankomst</label>
+          <input type="date" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Vertrek</label>
+          <input type="date" class="form-input" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Kamertype</label>
+        <select class="form-input">
+          <option value="">Kies een kamer...</option>
+          <option>Familiekamer (4 bedden)</option>
+          <option>Premium Suite (balkon, 2 bedden)</option>
+          <option>Standaardkamer (2 bedden)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Bericht of wensen</label>
+        <textarea class="form-input" placeholder="Bijv. speciale wensen, kinderbedjes, wijnproefavond..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Reserveringsverzoek versturen</button>
+      <div id="form-success" style="display:none;color:var(--olive);font-size:0.9rem;padding:1rem;background:rgba(107,124,82,0.1);border-left:3px solid var(--olive);">
+        ✓ Bedankt! We nemen binnen 24 uur contact met u op om uw reservering te bevestigen.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Hotel Lunigiana</span>
+  <ul class="footer-links">
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#kamers">Kamers</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#activiteiten">Activiteiten</a></li>
+    <li><a href="#recensies">Recensies</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2024 Hotel Lunigiana — Via della Lunigiana 42, Aulla, Toscane · <a href="mailto:info@hotellunigiana.it" style="color:rgba(255,255,255,0.3);text-decoration:none;">info@hotellunigiana.it</a></p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Kamer foto">
+</div>
+
+<script>
+  function showRoom(type) {
+    document.querySelectorAll('.room-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('room-' + type).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  function handleForm(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.querySelectorAll('input, textarea, select, button').forEach(el => el.disabled = true);
+  }
+
+  // Smooth active tab on click fix
+  document.querySelectorAll('.room-tab').forEach((tab, i) => {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
